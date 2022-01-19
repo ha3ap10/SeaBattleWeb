@@ -3,4 +3,4 @@
 ```
 docker-compose up
 ```
-В браузере перейти по адресу [localhost](localhost)
+В браузере перейти по адресу [localhost](http://localhost)
