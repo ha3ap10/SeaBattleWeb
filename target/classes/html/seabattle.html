@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SeaBattle</title>
+</head>
+<body>
+<h2><div style="color: darkblue">SeaBattleWeb</div></h2>
+<h5 hidden>Введите координаты через пробел</h5>
+
+<div style="position: absolute; top: 160px; left: 20px">Осталось кораблей:</div>
+<div style="color: darkgreen; position: absolute; top: 190px; left: 20px">Моих: {myShips}</div>
+<div style="color: darkred; position: absolute; top: 190px; left: 250px">Врага: {enemyShips}</div>
+
+<form action="/attack" method="post" target="_self">
+    <label hidden=true for="attack">Координаты</label>
+    <input hidden="true" type="text" id="attack" name="attack">
+    <button hidden="true" type="submit" id="shot">Пальнуть!</button>
+    <br>
+    <br>
+    <label>{status}</label>
+
+<!--</form>-->
+
+<div style="position: absolute; top: 219px; left: 0px; z-index: 1"><img src="src/main/resources/field.png" title="field"/></div>
+
+<!--My field-->
+<div style="position: absolute; top: 240px; left: 22px; z-index: 3"><img src={1my1} title="А 1"/></div>
+<div style="position: absolute; top: 261px; left: 22px; z-index: 3"><img src={1my2} title="А 2"/></div>
+<div style="position: absolute; top: 282px; left: 22px; z-index: 3"><img src={1my3} title="А 3"/></div>
+<div style="position: absolute; top: 303px; left: 22px; z-index: 3"><img src={1my4} title="А 4"/></div>
+<div style="position: absolute; top: 324px; left: 22px; z-index: 3"><img src={1my5} title="А 5"/></div>
+<div style="position: absolute; top: 345px; left: 22px; z-index: 3"><img src={1my6} title="А 6"/></div>
+<div style="position: absolute; top: 366px; left: 22px; z-index: 3"><img src={1my7} title="А 7"/></div>
+<div style="position: absolute; top: 387px; left: 22px; z-index: 3"><img src={1my8} title="А 8"/></div>
+<div style="position: absolute; top: 408px; left: 22px; z-index: 3"><img src={1my9} title="А 9"/></div>
+<div style="position: absolute; top: 429px; left: 22px; z-index: 3"><img src={1my10} title="А 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 43px; z-index: 3"><img src={2my1} title="Б 1"/></div>
+<div style="position: absolute; top: 261px; left: 43px; z-index: 3"><img src={2my2} title="Б 2"/></div>
+<div style="position: absolute; top: 282px; left: 43px; z-index: 3"><img src={2my3} title="Б 3"/></div>
+<div style="position: absolute; top: 303px; left: 43px; z-index: 3"><img src={2my4} title="Б 4"/></div>
+<div style="position: absolute; top: 324px; left: 43px; z-index: 3"><img src={2my5} title="Б 5"/></div>
+<div style="position: absolute; top: 345px; left: 43px; z-index: 3"><img src={2my6} title="Б 6"/></div>
+<div style="position: absolute; top: 366px; left: 43px; z-index: 3"><img src={2my7} title="Б 7"/></div>
+<div style="position: absolute; top: 387px; left: 43px; z-index: 3"><img src={2my8} title="Б 8"/></div>
+<div style="position: absolute; top: 408px; left: 43px; z-index: 3"><img src={2my9} title="Б 9"/></div>
+<div style="position: absolute; top: 429px; left: 43px; z-index: 3"><img src={2my10} title="Б 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 64px; z-index: 3"><img src={3my1} title="В 1"/></div>
+<div style="position: absolute; top: 261px; left: 64px; z-index: 3"><img src={3my2} title="В 2"/></div>
+<div style="position: absolute; top: 282px; left: 64px; z-index: 3"><img src={3my3} title="В 3"/></div>
+<div style="position: absolute; top: 303px; left: 64px; z-index: 3"><img src={3my4} title="В 4"/></div>
+<div style="position: absolute; top: 324px; left: 64px; z-index: 3"><img src={3my5} title="В 5"/></div>
+<div style="position: absolute; top: 345px; left: 64px; z-index: 3"><img src={3my6} title="В 6"/></div>
+<div style="position: absolute; top: 366px; left: 64px; z-index: 3"><img src={3my7} title="В 7"/></div>
+<div style="position: absolute; top: 387px; left: 64px; z-index: 3"><img src={3my8} title="В 8"/></div>
+<div style="position: absolute; top: 408px; left: 64px; z-index: 3"><img src={3my9} title="В 9"/></div>
+<div style="position: absolute; top: 429px; left: 64px; z-index: 3"><img src={3my10} title="В 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 85px; z-index: 3"><img src={4my1} title="Г 1"/></div>
+<div style="position: absolute; top: 261px; left: 85px; z-index: 3"><img src={4my2} title="Г 2"/></div>
+<div style="position: absolute; top: 282px; left: 85px; z-index: 3"><img src={4my3} title="Г 3"/></div>
+<div style="position: absolute; top: 303px; left: 85px; z-index: 3"><img src={4my4} title="Г 4"/></div>
+<div style="position: absolute; top: 324px; left: 85px; z-index: 3"><img src={4my5} title="Г 5"/></div>
+<div style="position: absolute; top: 345px; left: 85px; z-index: 3"><img src={4my6} title="Г 6"/></div>
+<div style="position: absolute; top: 366px; left: 85px; z-index: 3"><img src={4my7} title="Г 7"/></div>
+<div style="position: absolute; top: 387px; left: 85px; z-index: 3"><img src={4my8} title="Г 8"/></div>
+<div style="position: absolute; top: 408px; left: 85px; z-index: 3"><img src={4my9} title="Г 9"/></div>
+<div style="position: absolute; top: 429px; left: 85px; z-index: 3"><img src={4my10} title="Г 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 106px; z-index: 3"><img src={5my1} title="Д 1"/></div>
+<div style="position: absolute; top: 261px; left: 106px; z-index: 3"><img src={5my2} title="Д 2"/></div>
+<div style="position: absolute; top: 282px; left: 106px; z-index: 3"><img src={5my3} title="Д 3"/></div>
+<div style="position: absolute; top: 303px; left: 106px; z-index: 3"><img src={5my4} title="Д 4"/></div>
+<div style="position: absolute; top: 324px; left: 106px; z-index: 3"><img src={5my5} title="Д 5"/></div>
+<div style="position: absolute; top: 345px; left: 106px; z-index: 3"><img src={5my6} title="Д 6"/></div>
+<div style="position: absolute; top: 366px; left: 106px; z-index: 3"><img src={5my7} title="Д 7"/></div>
+<div style="position: absolute; top: 387px; left: 106px; z-index: 3"><img src={5my8} title="Д 8"/></div>
+<div style="position: absolute; top: 408px; left: 106px; z-index: 3"><img src={5my9} title="Д 9"/></div>
+<div style="position: absolute; top: 429px; left: 106px; z-index: 3"><img src={5my10} title="Д 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 127px; z-index: 3"><img src={6my1} title="Е 1"/></div>
+<div style="position: absolute; top: 261px; left: 127px; z-index: 3"><img src={6my2} title="Е 2"/></div>
+<div style="position: absolute; top: 282px; left: 127px; z-index: 3"><img src={6my3} title="Е 3"/></div>
+<div style="position: absolute; top: 303px; left: 127px; z-index: 3"><img src={6my4} title="Е 4"/></div>
+<div style="position: absolute; top: 324px; left: 127px; z-index: 3"><img src={6my5} title="Е 5"/></div>
+<div style="position: absolute; top: 345px; left: 127px; z-index: 3"><img src={6my6} title="Е 6"/></div>
+<div style="position: absolute; top: 366px; left: 127px; z-index: 3"><img src={6my7} title="Е 7"/></div>
+<div style="position: absolute; top: 387px; left: 127px; z-index: 3"><img src={6my8} title="Е 8"/></div>
+<div style="position: absolute; top: 408px; left: 127px; z-index: 3"><img src={6my9} title="Е 9"/></div>
+<div style="position: absolute; top: 429px; left: 127px; z-index: 3"><img src={6my10} title="Е 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 148px; z-index: 3"><img src={7my1} title="Ж 1"/></div>
+<div style="position: absolute; top: 261px; left: 148px; z-index: 3"><img src={7my2} title="Ж 2"/></div>
+<div style="position: absolute; top: 282px; left: 148px; z-index: 3"><img src={7my3} title="Ж 3"/></div>
+<div style="position: absolute; top: 303px; left: 148px; z-index: 3"><img src={7my4} title="Ж 4"/></div>
+<div style="position: absolute; top: 324px; left: 148px; z-index: 3"><img src={7my5} title="Ж 5"/></div>
+<div style="position: absolute; top: 345px; left: 148px; z-index: 3"><img src={7my6} title="Ж 6"/></div>
+<div style="position: absolute; top: 366px; left: 148px; z-index: 3"><img src={7my7} title="Ж 7"/></div>
+<div style="position: absolute; top: 387px; left: 148px; z-index: 3"><img src={7my8} title="Ж 8"/></div>
+<div style="position: absolute; top: 408px; left: 148px; z-index: 3"><img src={7my9} title="Ж 9"/></div>
+<div style="position: absolute; top: 429px; left: 148px; z-index: 3"><img src={7my10} title="Ж 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 169px; z-index: 3"><img src={8my1} title="З 1"/></div>
+<div style="position: absolute; top: 261px; left: 169px; z-index: 3"><img src={8my2} title="З 2"/></div>
+<div style="position: absolute; top: 282px; left: 169px; z-index: 3"><img src={8my3} title="З 3"/></div>
+<div style="position: absolute; top: 303px; left: 169px; z-index: 3"><img src={8my4} title="З 4"/></div>
+<div style="position: absolute; top: 324px; left: 169px; z-index: 3"><img src={8my5} title="З 5"/></div>
+<div style="position: absolute; top: 345px; left: 169px; z-index: 3"><img src={8my6} title="З 6"/></div>
+<div style="position: absolute; top: 366px; left: 169px; z-index: 3"><img src={8my7} title="З 7"/></div>
+<div style="position: absolute; top: 387px; left: 169px; z-index: 3"><img src={8my8} title="З 8"/></div>
+<div style="position: absolute; top: 408px; left: 169px; z-index: 3"><img src={8my9} title="З 9"/></div>
+<div style="position: absolute; top: 429px; left: 169px; z-index: 3"><img src={8my10} title="З 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 190px; z-index: 3"><img src={9my1} title="И 1"/></div>
+<div style="position: absolute; top: 261px; left: 190px; z-index: 3"><img src={9my2} title="И 2"/></div>
+<div style="position: absolute; top: 282px; left: 190px; z-index: 3"><img src={9my3} title="И 3"/></div>
+<div style="position: absolute; top: 303px; left: 190px; z-index: 3"><img src={9my4} title="И 4"/></div>
+<div style="position: absolute; top: 324px; left: 190px; z-index: 3"><img src={9my5} title="И 5"/></div>
+<div style="position: absolute; top: 345px; left: 190px; z-index: 3"><img src={9my6} title="И 6"/></div>
+<div style="position: absolute; top: 366px; left: 190px; z-index: 3"><img src={9my7} title="И 7"/></div>
+<div style="position: absolute; top: 387px; left: 190px; z-index: 3"><img src={9my8} title="И 8"/></div>
+<div style="position: absolute; top: 408px; left: 190px; z-index: 3"><img src={9my9} title="И 9"/></div>
+<div style="position: absolute; top: 429px; left: 190px; z-index: 3"><img src={9my10} title="И 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 211px; z-index: 3"><img src={10my1} title="К 1"/></div>
+<div style="position: absolute; top: 261px; left: 211px; z-index: 3"><img src={10my2} title="К 2"/></div>
+<div style="position: absolute; top: 282px; left: 211px; z-index: 3"><img src={10my3} title="К 3"/></div>
+<div style="position: absolute; top: 303px; left: 211px; z-index: 3"><img src={10my4} title="К 4"/></div>
+<div style="position: absolute; top: 324px; left: 211px; z-index: 3"><img src={10my5} title="К 5"/></div>
+<div style="position: absolute; top: 345px; left: 211px; z-index: 3"><img src={10my6} title="К 6"/></div>
+<div style="position: absolute; top: 366px; left: 211px; z-index: 3"><img src={10my7} title="К 7"/></div>
+<div style="position: absolute; top: 387px; left: 211px; z-index: 3"><img src={10my8} title="К 8"/></div>
+<div style="position: absolute; top: 408px; left: 211px; z-index: 3"><img src={10my9} title="К 9"/></div>
+<div style="position: absolute; top: 429px; left: 211px; z-index: 3"><img src={10my10} title="К 10"/></div>
+
+<!--Enemy field-->
+<div style="position: absolute; top: 240px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 1'; document.getElementById('shot').click()" src={1enemy1} title="А 1"/></div>
+<div style="position: absolute; top: 261px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 2'; document.getElementById('shot').click()" src={1enemy2} title="А 2"/></div>
+<div style="position: absolute; top: 282px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 3'; document.getElementById('shot').click()" src={1enemy3} title="А 3"/></div>
+<div style="position: absolute; top: 303px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 4'; document.getElementById('shot').click()" src={1enemy4} title="А 4"/></div>
+<div style="position: absolute; top: 324px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 5'; document.getElementById('shot').click()" src={1enemy5} title="А 5"/></div>
+<div style="position: absolute; top: 345px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 6'; document.getElementById('shot').click()" src={1enemy6} title="А 6"/></div>
+<div style="position: absolute; top: 366px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 7'; document.getElementById('shot').click()" src={1enemy7} title="А 7"/></div>
+<div style="position: absolute; top: 387px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 8'; document.getElementById('shot').click()" src={1enemy8} title="А 8"/></div>
+<div style="position: absolute; top: 408px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 9'; document.getElementById('shot').click()" src={1enemy9} title="А 9"/></div>
+<div style="position: absolute; top: 429px; left: 253px; z-index: 3"><img onclick="document.getElementById('attack').value = 'А 10'; document.getElementById('shot').click()" src={1enemy10} title="А 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 1'; document.getElementById('shot').click()" src={2enemy1} title="Б 1"/></div>
+<div style="position: absolute; top: 261px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 2'; document.getElementById('shot').click()" src={2enemy2} title="Б 2"/></div>
+<div style="position: absolute; top: 282px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 3'; document.getElementById('shot').click()" src={2enemy3} title="Б 3"/></div>
+<div style="position: absolute; top: 303px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 4'; document.getElementById('shot').click()" src={2enemy4} title="Б 4"/></div>
+<div style="position: absolute; top: 324px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 5'; document.getElementById('shot').click()" src={2enemy5} title="Б 5"/></div>
+<div style="position: absolute; top: 345px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 6'; document.getElementById('shot').click()" src={2enemy6} title="Б 6"/></div>
+<div style="position: absolute; top: 366px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 7'; document.getElementById('shot').click()" src={2enemy7} title="Б 7"/></div>
+<div style="position: absolute; top: 387px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 8'; document.getElementById('shot').click()" src={2enemy8} title="Б 8"/></div>
+<div style="position: absolute; top: 408px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 9'; document.getElementById('shot').click()" src={2enemy9} title="Б 9"/></div>
+<div style="position: absolute; top: 429px; left: 274px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Б 10'; document.getElementById('shot').click()" src={2enemy10} title="Б 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 1'; document.getElementById('shot').click()" src={3enemy1} title="В 1"/></div>
+<div style="position: absolute; top: 261px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 2'; document.getElementById('shot').click()" src={3enemy2} title="В 2"/></div>
+<div style="position: absolute; top: 282px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 3'; document.getElementById('shot').click()" src={3enemy3} title="В 3"/></div>
+<div style="position: absolute; top: 303px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 4'; document.getElementById('shot').click()" src={3enemy4} title="В 4"/></div>
+<div style="position: absolute; top: 324px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 5'; document.getElementById('shot').click()" src={3enemy5} title="В 5"/></div>
+<div style="position: absolute; top: 345px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 6'; document.getElementById('shot').click()" src={3enemy6} title="В 6"/></div>
+<div style="position: absolute; top: 366px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 7'; document.getElementById('shot').click()" src={3enemy7} title="В 7"/></div>
+<div style="position: absolute; top: 387px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 8'; document.getElementById('shot').click()" src={3enemy8} title="В 8"/></div>
+<div style="position: absolute; top: 408px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 9'; document.getElementById('shot').click()" src={3enemy9} title="В 9"/></div>
+<div style="position: absolute; top: 429px; left: 295px; z-index: 3"><img onclick="document.getElementById('attack').value = 'В 10'; document.getElementById('shot').click()" src={3enemy10} title="В 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 1'; document.getElementById('shot').click()" src={4enemy1} title="Г 1"/></div>
+<div style="position: absolute; top: 261px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 2'; document.getElementById('shot').click()" src={4enemy2} title="Г 2"/></div>
+<div style="position: absolute; top: 282px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 3'; document.getElementById('shot').click()" src={4enemy3} title="Г 3"/></div>
+<div style="position: absolute; top: 303px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 4'; document.getElementById('shot').click()" src={4enemy4} title="Г 4"/></div>
+<div style="position: absolute; top: 324px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 5'; document.getElementById('shot').click()" src={4enemy5} title="Г 5"/></div>
+<div style="position: absolute; top: 345px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 6'; document.getElementById('shot').click()" src={4enemy6} title="Г 6"/></div>
+<div style="position: absolute; top: 366px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 7'; document.getElementById('shot').click()" src={4enemy7} title="Г 7"/></div>
+<div style="position: absolute; top: 387px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 8'; document.getElementById('shot').click()" src={4enemy8} title="Г 8"/></div>
+<div style="position: absolute; top: 408px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 9'; document.getElementById('shot').click()" src={4enemy9} title="Г 9"/></div>
+<div style="position: absolute; top: 429px; left: 316px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Г 10'; document.getElementById('shot').click()" src={4enemy10} title="Г 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 1'; document.getElementById('shot').click()" src={5enemy1} title="Д 1"/></div>
+<div style="position: absolute; top: 261px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 2'; document.getElementById('shot').click()" src={5enemy2} title="Д 2"/></div>
+<div style="position: absolute; top: 282px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 3'; document.getElementById('shot').click()" src={5enemy3} title="Д 3"/></div>
+<div style="position: absolute; top: 303px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 4'; document.getElementById('shot').click()" src={5enemy4} title="Д 4"/></div>
+<div style="position: absolute; top: 324px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 5'; document.getElementById('shot').click()" src={5enemy5} title="Д 5"/></div>
+<div style="position: absolute; top: 345px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 6'; document.getElementById('shot').click()" src={5enemy6} title="Д 6"/></div>
+<div style="position: absolute; top: 366px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 7'; document.getElementById('shot').click()" src={5enemy7} title="Д 7"/></div>
+<div style="position: absolute; top: 387px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 8'; document.getElementById('shot').click()" src={5enemy8} title="Д 8"/></div>
+<div style="position: absolute; top: 408px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 9'; document.getElementById('shot').click()" src={5enemy9} title="Д 9"/></div>
+<div style="position: absolute; top: 429px; left: 337px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Д 10'; document.getElementById('shot').click()" src={5enemy10} title="Д 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 1'; document.getElementById('shot').click()" src={6enemy1} title="Е 1"/></div>
+<div style="position: absolute; top: 261px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 2'; document.getElementById('shot').click()" src={6enemy2} title="Е 2"/></div>
+<div style="position: absolute; top: 282px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 3'; document.getElementById('shot').click()" src={6enemy3} title="Е 3"/></div>
+<div style="position: absolute; top: 303px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 4'; document.getElementById('shot').click()" src={6enemy4} title="Е 4"/></div>
+<div style="position: absolute; top: 324px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 5'; document.getElementById('shot').click()" src={6enemy5} title="Е 5"/></div>
+<div style="position: absolute; top: 345px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 6'; document.getElementById('shot').click()" src={6enemy6} title="Е 6"/></div>
+<div style="position: absolute; top: 366px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 7'; document.getElementById('shot').click()" src={6enemy7} title="Е 7"/></div>
+<div style="position: absolute; top: 387px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 8'; document.getElementById('shot').click()" src={6enemy8} title="Е 8"/></div>
+<div style="position: absolute; top: 408px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 9'; document.getElementById('shot').click()" src={6enemy9} title="Е 9"/></div>
+<div style="position: absolute; top: 429px; left: 358px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Е 10'; document.getElementById('shot').click()" src={6enemy10} title="Е 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 1'; document.getElementById('shot').click()" src={7enemy1} title="Ж 1"/></div>
+<div style="position: absolute; top: 261px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 2'; document.getElementById('shot').click()" src={7enemy2} title="Ж 2"/></div>
+<div style="position: absolute; top: 282px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 3'; document.getElementById('shot').click()" src={7enemy3} title="Ж 3"/></div>
+<div style="position: absolute; top: 303px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 4'; document.getElementById('shot').click()" src={7enemy4} title="Ж 4"/></div>
+<div style="position: absolute; top: 324px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 5'; document.getElementById('shot').click()" src={7enemy5} title="Ж 5"/></div>
+<div style="position: absolute; top: 345px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 6'; document.getElementById('shot').click()" src={7enemy6} title="Ж 6"/></div>
+<div style="position: absolute; top: 366px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 7'; document.getElementById('shot').click()" src={7enemy7} title="Ж 7"/></div>
+<div style="position: absolute; top: 387px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 8'; document.getElementById('shot').click()" src={7enemy8} title="Ж 8"/></div>
+<div style="position: absolute; top: 408px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 9'; document.getElementById('shot').click()" src={7enemy9} title="Ж 9"/></div>
+<div style="position: absolute; top: 429px; left: 379px; z-index: 3"><img onclick="document.getElementById('attack').value = 'Ж 10'; document.getElementById('shot').click()" src={7enemy10} title="Ж 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 1'; document.getElementById('shot').click()" src={8enemy1} title="З 1"/></div>
+<div style="position: absolute; top: 261px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 2'; document.getElementById('shot').click()" src={8enemy2} title="З 2"/></div>
+<div style="position: absolute; top: 282px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 3'; document.getElementById('shot').click()" src={8enemy3} title="З 3"/></div>
+<div style="position: absolute; top: 303px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 4'; document.getElementById('shot').click()" src={8enemy4} title="З 4"/></div>
+<div style="position: absolute; top: 324px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 5'; document.getElementById('shot').click()" src={8enemy5} title="З 5"/></div>
+<div style="position: absolute; top: 345px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 6'; document.getElementById('shot').click()" src={8enemy6} title="З 6"/></div>
+<div style="position: absolute; top: 366px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 7'; document.getElementById('shot').click()" src={8enemy7} title="З 7"/></div>
+<div style="position: absolute; top: 387px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 8'; document.getElementById('shot').click()" src={8enemy8} title="З 8"/></div>
+<div style="position: absolute; top: 408px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 9'; document.getElementById('shot').click()" src={8enemy9} title="З 9"/></div>
+<div style="position: absolute; top: 429px; left: 400px; z-index: 3"><img onclick="document.getElementById('attack').value = 'З 10'; document.getElementById('shot').click()" src={8enemy10} title="З 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 1'; document.getElementById('shot').click()" src={9enemy1} title="И 1"/></div>
+<div style="position: absolute; top: 261px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 2'; document.getElementById('shot').click()" src={9enemy2} title="И 2"/></div>
+<div style="position: absolute; top: 282px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 3'; document.getElementById('shot').click()" src={9enemy3} title="И 3"/></div>
+<div style="position: absolute; top: 303px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 4'; document.getElementById('shot').click()" src={9enemy4} title="И 4"/></div>
+<div style="position: absolute; top: 324px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 5'; document.getElementById('shot').click()" src={9enemy5} title="И 5"/></div>
+<div style="position: absolute; top: 345px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 6'; document.getElementById('shot').click()" src={9enemy6} title="И 6"/></div>
+<div style="position: absolute; top: 366px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 7'; document.getElementById('shot').click()" src={9enemy7} title="И 7"/></div>
+<div style="position: absolute; top: 387px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 8'; document.getElementById('shot').click()" src={9enemy8} title="И 8"/></div>
+<div style="position: absolute; top: 408px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 9'; document.getElementById('shot').click()" src={9enemy9} title="И 9"/></div>
+<div style="position: absolute; top: 429px; left: 421px; z-index: 3"><img onclick="document.getElementById('attack').value = 'И 10'; document.getElementById('shot').click()" src={9enemy10} title="И 10"/></div>
+
+<div style="position: absolute; top: 240px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 1'; document.getElementById('shot').click()" src={10enemy1} title="К 1"/></div>
+<div style="position: absolute; top: 261px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 2'; document.getElementById('shot').click()" src={10enemy2} title="К 2"/></div>
+<div style="position: absolute; top: 282px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 3'; document.getElementById('shot').click()" src={10enemy3} title="К 3"/></div>
+<div style="position: absolute; top: 303px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 4'; document.getElementById('shot').click()" src={10enemy4} title="К 4"/></div>
+<div style="position: absolute; top: 324px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 5'; document.getElementById('shot').click()" src={10enemy5} title="К 5"/></div>
+<div style="position: absolute; top: 345px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 6'; document.getElementById('shot').click()" src={10enemy6} title="К 6"/></div>
+<div style="position: absolute; top: 366px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 7'; document.getElementById('shot').click()" src={10enemy7} title="К 7"/></div>
+<div style="position: absolute; top: 387px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 8'; document.getElementById('shot').click()" src={10enemy8} title="К 8"/></div>
+<div style="position: absolute; top: 408px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 9'; document.getElementById('shot').click()" src={10enemy9} title="К 9"/></div>
+<div style="position: absolute; top: 429px; left: 442px; z-index: 3"><img onclick="document.getElementById('attack').value = 'К 10'; document.getElementById('shot').click()" src={10enemy10} title="К 10"/></div>
+
+</form>
+</body>
+</html>
+
+<!--<li>-->
+<!--    <div style="position: absolute; top: 500px; left: 442px; z-index: 3"><img src={10enemy10} title="К 10" onclick="document.getElementById('attack').value = 'а 1'"/></div>-->
+<!--</li>-->

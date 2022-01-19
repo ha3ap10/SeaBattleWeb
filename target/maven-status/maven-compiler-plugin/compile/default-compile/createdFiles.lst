@@ -1,0 +1,15 @@
+ru\ha3ap\seabattleweb\model\ships\OneDeck.class
+ru\ha3ap\seabattleweb\model\Coords.class
+ru\ha3ap\seabattleweb\controller\Controller.class
+ru\ha3ap\seabattleweb\repository\MyRepository.class
+ru\ha3ap\seabattleweb\SeaBattleWebApplication.class
+ru\ha3ap\seabattleweb\model\ships\TwoDeck.class
+ru\ha3ap\seabattleweb\service\Service.class
+ru\ha3ap\seabattleweb\model\WarField.class
+ru\ha3ap\seabattleweb\model\ships\FourDeck.class
+ru\ha3ap\seabattleweb\model\ships\ThreeDeck.class
+ru\ha3ap\seabattleweb\Main.class
+ru\ha3ap\seabattleweb\repository\EnemyRepository.class
+ru\ha3ap\seabattleweb\repository\FieldRepository.class
+ru\ha3ap\seabattleweb\model\Turns.class
+ru\ha3ap\seabattleweb\model\ships\Ship.class
