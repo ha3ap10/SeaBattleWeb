@@ -10,6 +10,9 @@
 <div style="position: absolute; top: 160px; left: 20px">Осталось кораблей:</div>
 <div style="color: darkgreen; position: absolute; top: 190px; left: 20px">Моих: {myShips}</div>
 <div style="color: darkred; position: absolute; top: 190px; left: 250px">Врага: {enemyShips}</div>
+<form action="/restart" method="get" target="_self">
+    <div style="position: absolute; top: 460px; left: 20px"><button type="submit">Перезапуск</button></div>
+</form>
 
 <form action="/attack" method="post" target="_self">
     <label hidden=true for="attack">Координаты</label>

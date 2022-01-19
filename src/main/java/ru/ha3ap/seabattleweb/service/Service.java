@@ -87,6 +87,8 @@ public class Service {
 
     public String printField(String status) throws IOException {
         final var template = Files.readString(seabattlePath);
+        if (repository.getEnemyShips().size() == 0) status = "ПОБЕДА!";
+        if (repository.getMyShips().size() == 0) status = "ПОРАЖЕНИЕ!";
         var content = template.replace("{status}", status);
         content = content.replace("{myShips}", repository.getMyShips().size() + "");
         content = content.replace("{enemyShips}", repository.getEnemyShips().size() + "");

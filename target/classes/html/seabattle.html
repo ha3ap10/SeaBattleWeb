@@ -10,6 +10,9 @@
 <div style="position: absolute; top: 160px; left: 20px">Осталось кораблей:</div>
 <div style="color: darkgreen; position: absolute; top: 190px; left: 20px">Моих: {myShips}</div>
 <div style="color: darkred; position: absolute; top: 190px; left: 250px">Врага: {enemyShips}</div>
+<form action="/restart" method="get" target="_self">
+    <div style="position: absolute; top: 460px; left: 20px"><button type="submit">Перезапуск</button></div>
+</form>
 
 <form action="/attack" method="post" target="_self">
     <label hidden=true for="attack">Координаты</label>
@@ -18,8 +21,6 @@
     <br>
     <br>
     <label>{status}</label>
-
-<!--</form>-->
 
 <div style="position: absolute; top: 219px; left: 0px; z-index: 1"><img src="src/main/resources/field.png" title="field"/></div>
 
@@ -248,7 +249,3 @@
 </form>
 </body>
 </html>
-
-<!--<li>-->
-<!--    <div style="position: absolute; top: 500px; left: 442px; z-index: 3"><img src={10enemy10} title="К 10" onclick="document.getElementById('attack').value = 'а 1'"/></div>-->
-<!--</li>-->

@@ -2,6 +2,7 @@ package ru.ha3ap.seabattleweb.controller;
 
 
 import org.springframework.web.bind.annotation.*;
+import ru.ha3ap.seabattleweb.SeaBattleWebApplication;
 import ru.ha3ap.seabattleweb.service.Service;
 
 import java.io.IOException;
@@ -40,7 +41,8 @@ public class Controller {
     }
 
     @GetMapping("/restart")
-    public String restart() {
-        return service.restart();
+    public String restart() throws IOException {
+        SeaBattleWebApplication.restart();
+        return getCoin();
     }
 }

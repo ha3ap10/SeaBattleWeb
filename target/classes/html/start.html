@@ -5,12 +5,16 @@
 </head>
 <body>
 <h2>SeaBattleWeb</h2>
-<h5>Орел(0) или решка(1)???</h5>
+<h5>Орел или решка???</h5>
 
 <form action="/start" method="post" target="_self">
-    <label for="coin">Coin</label>
-    <input autofocus type="text" id="coin" name="coin"><br><br>
-    <button type="submit">Бросить монетку</button>
+    <label hidden="true" for="coin">Coin</label>
+    <input hidden="true" autofocus type="text" id="coin" name="coin"><br><br>
+    <button hidden="true" type="submit" id="throw">Бросить монетку</button>
+
+    <div style="position: absolute; top: 140px; left: 20px"><img onclick="document.getElementById('coin').value = '0'; document.getElementById('throw').click()" src="src/main/resources/heads.png" title="Орёл" width="100" height="100"/></div>
+    <div style="position: absolute; top: 140px; left: 120px"><img onclick="document.getElementById('coin').value = '1'; document.getElementById('throw').click()" src="src/main/resources/tails.png" title="Решка" width="100" height="100"/></div>
+
 </form>
 
 </body>

@@ -271,7 +271,7 @@ public class FieldRepository {
             }
 
             if (fieldMy[x1][y1] == EMPTY) {
-                enemyShot = false;
+//                enemyShot = false;
                 fieldMy[x1][y1] = MISS;
                 break;
             }
