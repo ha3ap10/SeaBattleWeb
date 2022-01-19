@@ -11,16 +11,19 @@
 <div style="color: darkgreen; position: absolute; top: 190px; left: 20px">Моих: {myShips}</div>
 <div style="color: darkred; position: absolute; top: 190px; left: 250px">Врага: {enemyShips}</div>
 <form action="/restart" method="get" target="_self">
-    <div style="position: absolute; top: 460px; left: 20px"><button type="submit">Перезапуск</button></div>
+    <div style="position: absolute; top: 21px; left: 390px"><button type="submit" id="restart">Перезапуск</button></div>
 </form>
 
 <form action="/attack" method="post" target="_self">
-    <label hidden=true for="attack">Координаты</label>
-    <input hidden="true" type="text" id="attack" name="attack">
-    <button hidden="true" type="submit" id="shot">Пальнуть!</button>
+    <label hidden for="attack">Координаты</label>
+    <input hidden type="text" id="attack" name="attack">
+    <button hidden type="submit" id="shot">Пальнуть!</button>
     <br>
     <br>
     <label>{status}</label>
+
+    <div style="position: absolute; top: 219px; left: 0px; z-index: 10"><img id="win" hidden src="src/main/resources/Congrats-You-Win.gif" width="467"/></div>
+    <div style="position: absolute; top: 219px; left: 0px; z-index: 10"><img id="fail" hidden src="src/main/resources/wasted.gif" width="467"/></div>
 
 <div style="position: absolute; top: 219px; left: 0px; z-index: 1"><img src="src/main/resources/field.png" title="field"/></div>
 

@@ -30,6 +30,8 @@ public class Service {
 
     private static final String ID = "attack=";
     private static final String COIN = "coin=";
+    private static final String WIN = "ПОБЕДА!";
+    private static final String FAIL = "ПОРАЖЕНИЕ!";
 
     private final Path seabattlePath = Path.of(RESOURCES, "html", "seabattle.html");
     private final Path startPath = Path.of(RESOURCES, "html", "start.html");
@@ -87,8 +89,8 @@ public class Service {
 
     public String printField(String status) throws IOException {
         final var template = Files.readString(seabattlePath);
-        if (repository.getEnemyShips().size() == 0) status = "ПОБЕДА!";
-        if (repository.getMyShips().size() == 0) status = "ПОРАЖЕНИЕ!";
+        if (repository.getEnemyShips().size() == 0) status = WIN;
+        if (repository.getMyShips().size() == 0) status = FAIL;
         var content = template.replace("{status}", status);
         content = content.replace("{myShips}", repository.getMyShips().size() + "");
         content = content.replace("{enemyShips}", repository.getEnemyShips().size() + "");
@@ -110,6 +112,12 @@ public class Service {
                 content = content.replace("{" + (i + 1) + "my" + (j + 1) + "}", pathMy);
                 content = content.replace("{" + (i + 1) + "enemy" + (j + 1) + "}", pathEnemy);
             }
+        }
+        if (status.equals(WIN)) {
+            content = content.replace("id=\"win\" hidden", "id=\"win\"");
+        }
+        if (status.equals(FAIL)) {
+            content = content.replace("id=\"fail\" hidden", "id=\"fail\"");
         }
         return content;
     }
